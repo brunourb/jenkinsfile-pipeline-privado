@@ -9,16 +9,25 @@ def APP=""
 pipeline {
     //Agent é o NÓ que vai rodar o job
     agent any
+    
+    //Configurações do gitparameter
+    parameters {
+        gitParameter branchFilter: 'repo.*/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH_TAG'
+    }
 
     //Fases do pipeline
     stages {
         
        stage('Checkout') {
             steps {
-                script {
-                    git branch: 'master',
-                        url: 'https://github.com/paulonill/exemplo-spring-mvc-thymeleaf.git'
-                }
+                checkout([$class: 'GitSCM',
+                          branches: [[name: "${params.BRANCH}"]],
+                          doGenerateSubmoduleConfigurations: false,
+                          extensions: [],
+                          gitTool: 'Default',
+                          submoduleCfg: [],
+                          userRemoteConfigs: [[url: 'https://github.com/paulonill/exemplo-spring-mvc-thymeleaf.git']]
+                        ])
             }
         }
         
