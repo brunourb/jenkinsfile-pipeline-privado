@@ -28,7 +28,7 @@ pipeline {
                           extensions: [],
                           gitTool: 'Default',
                           submoduleCfg: [],
-                          userRemoteConfigs: [[url: "${USER_REPOSITORY}"]]
+                          userRemoteConfigs: [[url: ${USER_REPOSITORY}]]
                         ])
             }
         }
