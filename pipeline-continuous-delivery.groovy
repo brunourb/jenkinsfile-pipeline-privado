@@ -33,7 +33,7 @@ pipeline {
        stage('Checkout') {
             steps {
                 checkout([$class: 'GitSCM',
-                          branches: [[name: "${params.BRANCH}"]],
+                          branches: [[name: "repo/${params.BRANCH}"]],
                           doGenerateSubmoduleConfigurations: false,
                           extensions: [],
                           gitTool: 'Default',
