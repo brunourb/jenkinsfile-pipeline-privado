@@ -5,6 +5,8 @@ def IMAGE=""
 def VERSION=""
 def PACKING=""
 def APP=""
+def USER_REPOSITORY_PATCH="exemplo-spring-mvc-thymeleaf.git"
+def USER_REPOSITORY="https://github.com/paulonill/${USER_REPOSITORY_PATCH}"
 
 pipeline {
     //Agent é o NÓ que vai rodar o job
@@ -12,7 +14,7 @@ pipeline {
     
     //Configurações do gitparameter
     parameters {
-        gitParameter branchFilter: 'repo.*/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH_TAG'
+        gitParameter branchFilter: 'repo.*/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH_TAG', useRepository: "'.*${USER_REPOSITORY}'"
     }
 
     //Fases do pipeline
@@ -26,7 +28,7 @@ pipeline {
                           extensions: [],
                           gitTool: 'Default',
                           submoduleCfg: [],
-                          userRemoteConfigs: [[url: 'https://github.com/paulonill/exemplo-spring-mvc-thymeleaf.git']]
+                          userRemoteConfigs: [[url: "${USER_REPOSITORY}"]]
                         ])
             }
         }
