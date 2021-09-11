@@ -14,7 +14,17 @@ pipeline {
     
     //Configurações do gitparameter
     parameters {
-        gitParameter branchFilter: 'repo.*/(.*)', defaultValue: 'master', description: 'Informe a branch para build', name: 'BRANCH', quickFilterEnabled: true, selectedValue: 'NONE', sortMode: 'DESCENDING', tagFilter: '*', type: 'PT_BRANCH_TAG', useRepository: '.*exemplo-spring-mvc-thymeleaf.git'
+        gitParameter (
+            branchFilter: 'repo.*/(.*)',
+            defaultValue: 'master',
+            description: 'Informe a branch para build',
+            name: 'BRANCH',
+            quickFilterEnabled: true,
+            selectedValue: 'NONE',
+            sortMode: 'DESCENDING',
+            tagFilter: '*',
+            type: 'PT_BRANCH_TAG',
+            useRepository: '.*${USER_REPOSITORY_PATCH}'
     }
 
     //Fases do pipeline
