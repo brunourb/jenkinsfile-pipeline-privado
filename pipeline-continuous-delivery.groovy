@@ -25,6 +25,7 @@ pipeline {
             tagFilter: '*',
             type: 'PT_BRANCH_TAG',
             useRepository: '.*${USER_REPOSITORY_PATCH}'
+        )
     }
 
     //Fases do pipeline
