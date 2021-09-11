@@ -28,7 +28,7 @@ pipeline {
                           extensions: [],
                           gitTool: 'Default',
                           submoduleCfg: [],
-                          userRemoteConfigs: [[url: 'https://github.com/paulonill/exemplo-spring-mvc-thymeleaf.git']]
+                          userRemoteConfigs: [[url: '${USER_REPOSITORY}']]
                         ])
             }
         }
