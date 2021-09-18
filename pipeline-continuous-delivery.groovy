@@ -126,6 +126,12 @@ pipeline {
                     
                 }
             }
-        }         
+        }     
+        stage('Tag Branch'){
+            steps {
+                sh 'git tag $BUILDER_NUMBER '
+
+            }
+        } 
     }
 }
