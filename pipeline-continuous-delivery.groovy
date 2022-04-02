@@ -1,4 +1,5 @@
 #!/usr/bin/env groovy
+#teste
 
 def MAVEN_VERSION="maven-3.6.3"
 def IMAGE=""
