@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                     git branch: 'master',
-                        url: 'https://github.com/paulonill/exemplo-spring-mvc-thymeleaf.git'
+                        url: 'https://github.com/bezarsnba/exemplo-spring-mvc-thymeleaf.git'
                 }
             }
         }
@@ -126,6 +126,12 @@ pipeline {
                     
                 }
             }
-        }         
+        }     
+        stage('Tag Branch'){
+            steps {
+                sh 'git tag $BUILDER_NUMBER '
+
+            }
+        } 
     }
 }
